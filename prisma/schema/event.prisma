@@ -1,0 +1,15 @@
+// Event — represents each event your organisation runs
+model Event {
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    tallyFormId String   @unique // Tally's form ID — used to match incoming webhooks
+    title       String
+    description String?
+    venue       String?
+    eventDate   DateTime
+    capacity    Int? // null = unlimited
+    isActive    Boolean  @default(true)
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    registrations Registration[]
+}

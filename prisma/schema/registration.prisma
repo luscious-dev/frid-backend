@@ -1,0 +1,43 @@
+// Registration — one record per webhook call from Tally
+model Registration {
+    id      String @id @default(auto()) @map("_id") @db.ObjectId
+    eventId String @db.ObjectId
+    event   Event  @relation(fields: [eventId], references: [id])
+
+    // Registrant identity
+    firstName String
+    lastName  String
+    email     String
+    phone     String?
+
+    // Raw payload from Tally — store it so you never lose data
+    tallySubmissionId String // Tally's own submission ID
+    rawPayload        Json // the full webhook body exactly as received
+
+    // Registration state
+    status        RegistrationStatus @default(PENDING)
+    joinCommunity Boolean            @default(false)
+
+    // Attendance tracking
+    attended    Boolean   @default(false)
+    checkedInAt DateTime?
+
+    // Communication
+    confirmationSentAt DateTime?
+    reminderSentAt     DateTime?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([eventId])
+    @@index([email])
+    @@index([tallySubmissionId])
+}
+
+enum RegistrationStatus {
+    PENDING // webhook received, not yet confirmed
+    CONFIRMED // confirmation email sent
+    CANCELLED // registrant cancelled
+    WAITLISTED // event is full
+    NO_SHOW // did not attend
+}

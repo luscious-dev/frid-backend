@@ -1,0 +1,24 @@
+// WebhookLog — audit trail of every raw request Tally sends
+// Critical for debugging and replaying failed webhooks
+model WebhookLog {
+    id          String           @id @default(auto()) @map("_id") @db.ObjectId
+    formId      String // which Tally form triggered this
+    eventType   String // e.g. "FORM_RESPONSE"
+    payload     Json // raw request body
+    headers     Json // raw request headers (for signature verification)
+    status      WebhookLogStatus @default(RECEIVED)
+    error       String? // error message if processing failed
+    processedAt DateTime?
+    createdAt   DateTime         @default(now())
+
+    @@index([formId])
+    @@index([status])
+}
+
+enum WebhookLogStatus {
+    RECEIVED // webhook arrived
+    PROCESSED // successfully created a Registration
+    DUPLICATE // tallySubmissionId already exists — ignored
+    FAILED // processing errored
+    IGNORED // form ID not matched to any Event
+}
