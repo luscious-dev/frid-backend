@@ -36,19 +36,16 @@ export class RegistrationController {
         let tallySubmissionId = payload.data.submissionId;
         let joinCommunity = false;
 
-        console.log("Received payload:", payload);
-
         for (const field of payload.data.fields) {
-            console.log(field)
-            if (field.id === "first_name") {
+            if (field.label === "first_name") {
                 firstName = field.value;
-            } else if (field.id === "Last name") {
+            } else if (field.label === "Last name") {
                 lastName = field.value;
-            } else if (field.id === "Email") {
+            } else if (field.label === "Email") {
                 email = field.value;
-            } else if (field.id === "Phone Number (Whatsapp)") {
+            } else if (field.label === "Phone Number (Whatsapp)") {
                 phone = field.value;
-            } else if (field.id === "Would you like to join our community?") {
+            } else if (field.label === "Would you like to join our community?") {
                 joinCommunity = field.value?.toLowerCase() === "yes";
             }
         }
