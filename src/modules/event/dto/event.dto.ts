@@ -20,7 +20,6 @@ export class EventDto {
     static fromModel(event: Event): EventDto {
         return new EventDto({
             id: event.id,
-            tallyFormId: event.tallyFormId,
             title: event.title,
             description: event.description,
             venue: event.venue,

@@ -2,9 +2,6 @@ import { IsString, IsOptional, IsDateString, IsInt, IsBoolean, Min } from 'class
 
 export class CreateEventDto {
     @IsString()
-    tallyFormId!: string;
-
-    @IsString()
     title!: string;
 
     @IsOptional()
