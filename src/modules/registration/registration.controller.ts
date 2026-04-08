@@ -38,7 +38,7 @@ export class RegistrationController {
 
         console.log("Received payload:", payload);
 
-        for (const field of payload.fields) {
+        for (const field of payload.data.fields) {
             if (field.id === "first_name") {
                 firstName = field.value;
             } else if (field.id === "Last name") {
