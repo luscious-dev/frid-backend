@@ -33,12 +33,13 @@ export class RegistrationController {
         let lastName = "";
         let email = "";
         let phone = "";
-        let tallySubmissionId = "";
+        let tallySubmissionId = payload.data.submissionId;
         let joinCommunity = false;
 
         console.log("Received payload:", payload);
 
         for (const field of payload.data.fields) {
+            console.log(field)
             if (field.id === "first_name") {
                 firstName = field.value;
             } else if (field.id === "Last name") {
@@ -47,8 +48,6 @@ export class RegistrationController {
                 email = field.value;
             } else if (field.id === "Phone Number (Whatsapp)") {
                 phone = field.value;
-            } else if (field.id === "tally_submission_id") {
-                tallySubmissionId = field.value;
             } else if (field.id === "Would you like to join our community?") {
                 joinCommunity = field.value?.toLowerCase() === "yes";
             }
