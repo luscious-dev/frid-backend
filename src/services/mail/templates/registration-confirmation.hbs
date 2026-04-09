@@ -1,0 +1,374 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>Event Registration Confirmation</title>
+  </head>
+  <body
+    style='margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, sans-serif;'
+  >
+    <table
+      role='presentation'
+      cellspacing='0'
+      cellpadding='0'
+      border='0'
+      width='100%'
+      style='background-color: #f4f4f4;'
+    >
+      <tr>
+        <td style='padding: 20px 0;'>
+          <!-- Main Container -->
+          <table
+            role='presentation'
+            cellspacing='0'
+            cellpadding='0'
+            border='0'
+            width='600'
+            style='margin: 0 auto; background-color: #46270a; border-radius: 8px; overflow: hidden;'
+          >
+
+            <!-- Header Section -->
+            <tr>
+              <td
+                style='padding: 40px 30px; text-align: center; background-color: #46270a;'
+              >
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                >
+                  <tr>
+                    <td
+                      style='color: #ffffff; font-size: 28px; font-weight: bold; padding-bottom: 10px;'
+                    >
+                      🎉 You're Officially In!
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style='color: #ee9d5b; font-size: 18px; font-weight: bold;'
+                    >
+                      {{eventTitle}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Welcome Message -->
+            <tr>
+              <td style='padding: 30px 30px 20px; background-color: #46270a;'>
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                >
+                  <tr>
+                    <td
+                      style='color: #ffffff; font-size: 16px; line-height: 1.6;'
+                    >
+                      Hi
+                      {{firstName}},<br /><br />
+                      I'm so excited you signed up for our webinar
+                      <strong>{{eventTitle}}</strong>
+                      – you're officially in!<br /><br />
+                      First of all, thank you for saying yes to this journey.
+                      That alone is a big step.<br /><br />
+                      This webinar is designed to help you start making sense of
+                      the confusion you might be feeling about your purpose,
+                      your next steps, or even your current season. It's going
+                      to be honest, practical, and (I promise) not boring 😄
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Event Details Card -->
+            <tr>
+              <td style='padding: 20px 30px; background-color: #46270a;'>
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                  style='background-color: #ee9d5b; border-radius: 8px;'
+                >
+                  <tr>
+                    <td style='padding: 25px;'>
+                      <table
+                        role='presentation'
+                        cellspacing='0'
+                        cellpadding='0'
+                        border='0'
+                        width='100%'
+                      >
+                        <tr>
+                          <td
+                            style='color: #46270a; font-size: 18px; font-weight: bold; padding-bottom: 15px;'
+                          >
+                            📅 Event Details
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style='padding: 8px 0;'>
+                            <table
+                              role='presentation'
+                              cellspacing='0'
+                              cellpadding='0'
+                              border='0'
+                              width='100%'
+                            >
+                              <tr>
+                                <td
+                                  style='color: #46270a; font-size: 15px; width: 60px; vertical-align: top;'
+                                >
+                                  🗓
+                                </td>
+                                <td style='color: #46270a; font-size: 15px;'>
+                                  <strong>Date:</strong>
+                                  {{eventDate}}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style='padding: 8px 0;'>
+                            <table
+                              role='presentation'
+                              cellspacing='0'
+                              cellpadding='0'
+                              border='0'
+                              width='100%'
+                            >
+                              <tr>
+                                <td
+                                  style='color: #46270a; font-size: 15px; width: 60px; vertical-align: top;'
+                                >
+                                  ⏰
+                                </td>
+                                <td style='color: #46270a; font-size: 15px;'>
+                                  <strong>Time:</strong>
+                                  {{eventTime}}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style='padding: 8px 0;'>
+                            <table
+                              role='presentation'
+                              cellspacing='0'
+                              cellpadding='0'
+                              border='0'
+                              width='100%'
+                            >
+                              <tr>
+                                <td
+                                  style='color: #46270a; font-size: 15px; width: 60px; vertical-align: top;'
+                                >
+                                  📍
+                                </td>
+                                <td style='color: #46270a; font-size: 15px;'>
+                                  <strong>Venue:</strong>
+                                  {{eventVenue}}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Meeting Link Section -->
+            {{#if meetingLink}}
+              <tr>
+                <td style='padding: 20px 30px; background-color: #46270a;'>
+                  <table
+                    role='presentation'
+                    cellspacing='0'
+                    cellpadding='0'
+                    border='0'
+                    width='100%'
+                  >
+                    <tr>
+                      <td
+                        style='color: #ffffff; font-size: 16px; font-weight: bold; padding-bottom: 15px;'
+                      >
+                        🔗 Join the Meeting
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style='padding-bottom: 15px;'>
+                        <table
+                          role='presentation'
+                          cellspacing='0'
+                          cellpadding='0'
+                          border='0'
+                          width='100%'
+                        >
+                          <tr>
+                            <td style='text-align: center; padding: 15px 0;'>
+                              <a
+                                href='{{meetingLink}}'
+                                style='background-color: #ee9d5b; color: #46270a; text-decoration: none; padding: 14px 40px; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;'
+                              >
+                                Join via Zoom
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    {{#if meetingId}}
+                      <tr>
+                        <td
+                          style='color: #ffffff; font-size: 14px; padding: 5px 0;'
+                        >
+                          <strong>Meeting ID:</strong>
+                          {{meetingId}}
+                        </td>
+                      </tr>
+                    {{/if}}
+                    {{#if meetingPasscode}}
+                      <tr>
+                        <td
+                          style='color: #ffffff; font-size: 14px; padding: 5px 0;'
+                        >
+                          <strong>Passcode:</strong>
+                          {{meetingPasscode}}
+                        </td>
+                      </tr>
+                    {{/if}}
+                  </table>
+                </td>
+              </tr>
+            {{/if}}
+
+            <!-- Add to Calendar Button -->
+            <tr>
+              <td style='padding: 20px 30px; background-color: #46270a;'>
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                >
+                  <tr>
+                    <td
+                      style='color: #ffffff; font-size: 14px; text-align: center; padding-bottom: 10px;'
+                    >
+                      📆 Don't miss it! Add this event to your calendar
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style='text-align: center; padding: 10px 0;'>
+                      <a
+                        href='{{calendarLink}}'
+                        style='background-color: transparent; color: #ee9d5b; text-decoration: none; padding: 12px 30px; border-radius: 5px; font-weight: bold; font-size: 15px; display: inline-block; border: 2px solid #ee9d5b;'
+                      >
+                        Add to Calendar
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Additional Message -->
+            <tr>
+              <td style='padding: 20px 30px 30px; background-color: #46270a;'>
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                >
+                  <tr>
+                    <td
+                      style='color: #ffffff; font-size: 15px; line-height: 1.6; font-style: italic;'
+                    >
+                      <strong>P.S:</strong>
+                      Save this email so you don't miss it!<br /><br />
+                      Also, come as you are. No pressure, no perfection needed.
+                      Just bring your questions, your thoughts, and an open
+                      mind. That's more than enough.<br /><br />
+                      I genuinely can't wait to have you in the room. It's going
+                      to be a special one.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Signature -->
+            <tr>
+              <td style='padding: 20px 30px 40px; background-color: #46270a;'>
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                >
+                  <tr>
+                    <td
+                      style='color: #ffffff; font-size: 16px; line-height: 1.5;'
+                    >
+                      See you soon 🤍<br />
+                      <strong style='color: #ee9d5b;'>Bolu Taiwo</strong><br />
+                      <span
+                        style='color: #ee9d5b; font-size: 14px; font-style: italic;'
+                      >Host</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style='padding: 20px 30px; background-color: #2d1806; text-align: center;'
+              >
+                <table
+                  role='presentation'
+                  cellspacing='0'
+                  cellpadding='0'
+                  border='0'
+                  width='100%'
+                >
+                  <tr>
+                    <td
+                      style='color: #ee9d5b; font-size: 12px; line-height: 1.5;'
+                    >
+                      This email was sent to
+                      {{email}}<br />
+                      If you have any questions, feel free to reply to this
+                      email.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

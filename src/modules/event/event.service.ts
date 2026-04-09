@@ -11,7 +11,6 @@ export class EventService {
         const event = await prisma.event.create({
             data: {
                 ...createEventDto,
-                eventDate: new Date(createEventDto.eventDate)
             }
         });
         return EventDto.fromModel(event);
@@ -20,7 +19,7 @@ export class EventService {
     async fetchAllEvents(): Promise<EventDto[]> {
         const events = await prisma.event.findMany({
             include: { registrations: true },
-            orderBy: { eventDate: 'desc' }
+            orderBy: { startDate: 'desc' }
         });
         return events.map(event => EventDto.fromModelWithCount(event));
     }
@@ -38,7 +37,6 @@ export class EventService {
             where: { id },
             data: {
                 ...updateEventDto,
-                eventDate: updateEventDto.eventDate ? new Date(updateEventDto.eventDate) : undefined
             }
         });
         return EventDto.fromModel(event);

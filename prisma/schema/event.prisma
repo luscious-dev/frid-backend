@@ -1,14 +1,37 @@
 // Event — represents each event your organisation runs
 model Event {
-    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    id          String  @id @default(auto()) @map("_id") @db.ObjectId
     title       String
     description String?
     venue       String?
-    eventDate   DateTime
-    capacity    Int? // null = unlimited
-    isActive    Boolean  @default(true)
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+
+    // Event timing
+    startDate DateTime
+    endDate   DateTime
+    timezone  String   @default("Africa/Lagos") // IANA timezone identifier
+
+    // Event capacity and status
+    capacity Int? // null = unlimited
+    isActive Boolean @default(true)
+
+    // Virtual meeting details (for Zoom, Teams, etc.)
+    meetingLink     String? // Join URL for virtual events
+    meetingId       String? // Meeting ID (e.g., Zoom meeting ID)
+    meetingPasscode String? // Meeting passcode/password
+
+    // Event host information
+    hostName  String  @default("Bolu Taiwo") // Host/organizer name
+    hostEmail String? // Host contact email
+
+    // Additional event metadata
+    bannerUrl String? // Event banner/poster image URL
+    tags      String[] // Tags for categorization
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     registrations Registration[]
+
+    @@index([startDate])
+    @@index([isActive])
 }

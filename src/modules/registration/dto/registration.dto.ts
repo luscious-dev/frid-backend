@@ -58,7 +58,7 @@ export class RegistrationDto {
             dto.event = {
                 id: registration.event.id,
                 title: registration.event.title,
-                eventDate: registration.event.eventDate,
+                eventDate: registration.event.startDate,
             };
         }
         return dto;
