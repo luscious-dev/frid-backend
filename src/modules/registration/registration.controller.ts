@@ -37,7 +37,7 @@ export class RegistrationController {
         let joinCommunity = false;
 
         for (const field of payload.data.fields) {
-            if (field.label === "First name") {
+            if (field.label === "Let's have your personal details") {
                 firstName = field.value;
             } else if (field.label === "Last name") {
                 lastName = field.value;
